@@ -28,6 +28,7 @@ public class FragmentSecond extends Fragment {
     Button btnAddText,btnSend;
     TextView tvFrag2;
     EditText etNum2;
+    Intent i = new Intent();
 
 
     public FragmentSecond() {
@@ -71,7 +72,7 @@ public class FragmentSecond extends Fragment {
                 //filter string
                 String filter="body LIKE ? AND body LIKE ?";
                 // The matches for the ?
-                String[] filterArgs = {"%you%", "%min%"};
+                String[] filterArgs = {"%"+etNum2 +"%"};
 
                 // Fetch SMS Message from Built-in Content Provider
 
@@ -90,7 +91,7 @@ public class FragmentSecond extends Fragment {
                         } else {
                             type = "Sent:";
                         }
-                        Intent i = new Intent();
+
                         smsBody += type + " " + address + "\n at " + date
                                 + "\n\"" + body + "\"\n\n";
                         i.putExtra("sms",smsBody);
@@ -105,12 +106,20 @@ public class FragmentSecond extends Fragment {
             @Override
             public void onClick(View v) {
 
+
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"jasonlim@rp.edu.sg"});
-                email.putExtra(Intent.EXTRA_SUBJECT, "SMS");
-                email.putExtra(Intent.EXTRA_TEXT, "message");
+
+                email.putExtra(Intent.EXTRA_EMAIL,
+                        new String[]{"jason_lim@rp.edu.sg"});
+                email.putExtra(Intent.EXTRA_SUBJECT,
+                        "SMS");
+                email.putExtra(Intent.EXTRA_TEXT,
+                        tvFrag2.getText());
+
                 email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
+                startActivity(Intent.createChooser(email,
+                        "Choose an Email client :"));
             }
         });
 
