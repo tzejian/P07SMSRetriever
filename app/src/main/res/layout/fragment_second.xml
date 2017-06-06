@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFDBDB"
+    android:orientation="vertical"
+    tools:context="com.example.a127107.p07smsretriever.FragmentSecond">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Only SMS with this word"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnAddTextFrag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retreive SMS" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Email" />
+
+    <TextView
+        android:id="@+id/tvFrag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A line of text" />
+
+</LinearLayout>
